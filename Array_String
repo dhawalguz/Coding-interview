@@ -48,3 +48,54 @@ int main()
     std::cout<<str;
     return 0;
 }
+
+/*Design an algorithm and write code to remove the duplicate characters in a string
+without using any additional buffer. NOTE: One or two additional variables are fine.
+An extra copy of the array is not.
+FOLLOW UP
+Write the test cases for this method
+*/
+
+#include <stdio.h>
+#include <algorithm>
+#include <iostream>
+
+int main()
+{
+    std::string str = "aacbbbfdddddd";
+    std::sort(str.begin(), str.end());
+
+    std::cout<<str<<"\n";
+    for(int i = 0; i < str.size();) {
+        if(str[i+1] == str[i]) {
+            str.erase(i, 1);
+        } else {
+            i++;
+        }
+    }
+    
+    std::cout<<str;
+    return 0;
+}
+
+/* Write a method to decide if two strings are anagrams or not. */
+#include <stdio.h>
+#include <algorithm>
+#include <iostream>
+
+int main()
+{
+    std::string str1 = "abcdhgfjye";
+    std::string str2 = "dcba";
+
+    std::sort(str1.begin(), str1.end());
+    std::sort(str2.begin(), str2.end());
+    
+    if (str1.compare(str2)) {
+        std::cout<<"Strings are not anagrams";
+    } else {
+        std::cout<<"Strings are anagrams!!!";
+    }
+    
+    return 0;
+}
