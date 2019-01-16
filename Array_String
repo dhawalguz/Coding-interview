@@ -21,3 +21,30 @@ int main()
     std::cout<<str;
     return 0;
 }
+
+
+/* Write code to reverse a C-Style String. (C-String means that “abcd” is represented as
+   five characters, including the null character.)
+*/
+
+
+#include <stdio.h>
+#include <algorithm>
+#include <iostream>
+
+int main()
+{
+    std::string str = "helper";
+    std::reverse(str.begin(), str.end());
+
+    char temp;
+    std::cout<<str<<"\n";
+    for(int i = 0; i < str.size()/2 ; i++) {
+        temp = str[i];
+        str[i] = str[str.size()-i-1];
+        str[str.size()-i-1] = temp;
+    }
+    
+    std::cout<<str;
+    return 0;
+}
